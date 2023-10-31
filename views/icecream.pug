@@ -6,8 +6,13 @@ block content
 
   .container-fluid
     .row
-      each icecream in results
-        .col-sm-2
+      each icecream,index in results
+        div(class="col-sm-2" onclick=`buy(${index})`)
           h3 #{icecream.flavour}
           p Quantity: #{icecream.quantity}
           p Price: $#{icecream.price}
+  
+  script.
+    function buy(index) {
+        alert(`You purchased : ${index}`)
+    }
